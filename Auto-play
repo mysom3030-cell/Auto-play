@@ -1,0 +1,15 @@
+local character = script.Parent
+local humanoid = character:WaitForChild("Humanoid")
+
+local animator = humanoid:FindFirstChildOfClass("Animator")
+if not animator then
+	animator = Instance.new("Animator")
+	animator.Parent = humanoid
+end
+
+local animation = Instance.new("Animation")
+animation.AnimationId = "rbxassetid://YOUR_ANIMATION_ID"
+
+local track = animator:LoadAnimation(animation)
+track.Priority = Enum.AnimationPriority.Action
+track:Play()
